@@ -1,17 +1,26 @@
 (function () {
-  console.log("script.js se está ejecutando..."); // Mensaje de depuración
+  console.log("script.js se está ejecutando...");
 
   var names = ["Yaakov", "John", "Jen", "Jason", "Paul", "Frank", "Larry", "Paula", "Laura", "Jim"];
-  console.log("Array de nombres:", names); // Verificar el array
+  console.log("Array de nombres:", names);
+
+  var outputDiv = document.getElementById("output"); // Obtener el div donde se mostrarán los nombres
 
   for (var i = 0; i < names.length; i++) {
     var firstLetter = names[i].charAt(0).toLowerCase();
-    console.log("Procesando nombre:", names[i], "- Primera letra:", firstLetter); // Depuración
+    var message;
 
     if (firstLetter === 'j') {
-      byeSpeaker.speak(names[i]); // Llamar a byeSpeaker.speak()
+      message = "Good Bye " + names[i];
+      byeSpeaker.speak(names[i]); // Seguir imprimiendo en la consola
     } else {
-      helloSpeaker.speak(names[i]); // Llamar a helloSpeaker.speak()
+      message = "Hello " + names[i];
+      helloSpeaker.speak(names[i]); // Seguir imprimiendo en la consola
     }
+
+    // Crear un nuevo elemento <p> y agregarlo al div
+    var para = document.createElement("p");
+    para.textContent = message;
+    outputDiv.appendChild(para);
   }
 })();
